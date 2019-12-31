@@ -14,10 +14,9 @@
     <div class="text-center" style="margin-bottom: 20px;">
       <image> src={{ movies[0].pic }} alt="movie-event-img-8" style="max-width:150px;"></image>
     </div>
-    <p><b>Location: </b>{{ movies[0].location }}</p> <br/>
-    <p><strong>Date/Time: </strong>{{ movies[0].date }}</p>
-    <p><strong>Email Subject: </strong>麦芽团购 {{ movies[0].movie_name }}</p>
-
+    <text>Location:{{ movies[0].location }}
+    Date/Time: {{ movies[0].date }}
+    Email Subject:麦芽团购 {{ movies[0].movie_name }}</text>
     <hr>
       <div class="form-group text-right">
         <button class="btn btn-info">Edit</button>
@@ -41,7 +40,7 @@
 
 <div class="panel">
   <div class="panel-heading">
-    <h3 class="panel-title">《两只老虎》</h3>
+    <h3 class="panel-title">{{ movies[1].movie_name }}</h3>
     <div class="right">
         <button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
     </div>
@@ -51,10 +50,9 @@
     <div class="text-center" style="margin-bottom: 20px;">
       <image> src="css/20191123-1574493858.jpg" alt="movie-event-img-8" style="max-width:150px;"></image>
     </div>
-    <p><strong>Location: </strong>Hoyts Norwood</p>
-    <p><strong>Date/Time: </strong>2019年12月7日      18:00</p>
-    <p><strong>Email Subject: </strong>麦芽团购《两只老虎》</p>
-
+    <text>Location:{{ movies[1].location }}
+    Date/Time: {{ movies[1].date }}
+    Email Subject:麦芽团购 {{ movies[1].movie_name }}</text>
     <hr>
       <div class="form-group text-right">
         <button class="btn btn-info">Edit</button>
