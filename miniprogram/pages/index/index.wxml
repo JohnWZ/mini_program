@@ -1,5 +1,5 @@
 <view class="list-item" wx:for="{{movies}}" wx:key="id"></view>
- 
+ <navigator url='../login/login'>add event</navigator>
 <h3>Upcoming Movie Events</h3>
 
 <div class="panel">
