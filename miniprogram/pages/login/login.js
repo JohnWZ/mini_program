@@ -22,7 +22,7 @@ Page({
   login: function () {
     if (this.data.phone.length == 0 || this.data.password.length == 0) {
       wx.showToast({
-        title: '用户名和密码不能为空',
+        title: '登录失败',
         icon: 'loading',
         duration: 2000
       })
