@@ -1,64 +1,108 @@
+const app = getApp()
+
 Page({
-  //数据源
+
   data: {
-    // movies 是放集合结果的
-    movies: [],
-    loading: false,
-    limit: 6,
-    windowHeight: 0,
-    scrollTop: 100
+    step: 1,
+    counterId: '',
+    openid: '',
+    count: null,
+    queryResult: '',
+    date: '2016-09-01',
+    time: '12:01',
+
   },
 
-  // 页面初始化
-  onLoad: function () {
-
-  // 创建数据库实例
-  const db = wx.cloud.database({
-    // 环境id
-    env:'mytechnologyau-8a9514'
-  })
-  // 查询userbills的数据
-  db.collection('userbills').get({
-    success : res=> {
-      console.log(res.data[0])
+  onLoad: function (options) {
+    if (app.globalData.openid) {
       this.setData({
-        movies: res.data
+        openid: app.globalData.openid
       })
     }
-  })
-  },  
-
-  // 页面显示（一个页面只会调用一次）
-  onShow:function(){
-    
   },
-  // 页面初次渲染完成（每次打开页面都会调用一次）
-  onReady:function(){
-    
-  },
-  // 页面隐藏（当navigateTo或底部tab切换时调用）
-  onHide:function(){
-    
-  },
-  // 页面关闭（当redirectTo或navigateBack的时候调用）
-  onUnload:function(){
-    
-  },
-  // 下拉加载
-  onPullDownRefresh: function(e) {
-    var limit = this.data.limit + 6
+  bindDateChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      limit: limit
+      date: e.detail.value
     })
-    this.requestData();
   },
-  // 购票
-  buyTickets: function() {
-    wx.showModal({
-      title: '购票提示：',
-      content: '目前不支持购买',
-      showCancel: false,
-      confirmColor: '#ff4d64'
+  bindTimeChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      time: e.detail.value
     })
+  },
+  onAdd: function () {
+   // const db = wx.cloud.database()
+  //  db.collection('userbills').add({
+    //  data: {
+  //      data1:'kindear',
+     //   data2:'真帅'
+      //},
+    //  success: res => {
+        // 在返回结果中会包含新创建的记录的 _id
+   //     this.setData({
+     //     counterId: res._id,
+//      count: 1
+      //  })
+      //  wx.showToast({
+      //    title: '新增记录成功',
+    //    })
+     //   console.log('[数据库] [新增记录] 成功，记录 _id: ', res._id)
+   //   },
+   //   fail: err => {
+     //   wx.showToast({
+   //       icon: 'none',
+     //     title: '新增记录失败'
+    //    })
+     //   console.error('[数据库] [新增记录] 失败：', err)
+   //   }
+  //  })
+  },
+  formSubmit: function (e) {
+    const db = wx.cloud.database()
+    console.log('form发生了submit事件，携带数据为：', e.detail.value);
+    let { movie_name, image, location, date,time,email_subject } = e.detail.value;
+    this.setData({
+      movie_name,
+     image,
+     location,
+     date,
+     time,
+     email_subject,
+    })
+    db.collection('userbills').add({
+      data: {
+        movie_name:e.detail.value.movie_name,
+        image: e.detail.value.image,
+        location: e.detail.value.location,
+        date: e.detail.value.date,
+        time: e.detail.value.time,
+        email_subject:e.detail.value.email_subject
+      },
+      success: res => {
+        // 在返回结果中会包含新创建的记录的 _id
+        this.setData({
+          counterId: res._id,
+          count: 1
+        })
+        wx.showToast({
+          title: '新增记录成功',
+        })
+        console.log('[数据库] [新增记录] 成功，记录 _id: ', res._id)
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '新增记录失败'
+        })
+        console.error('[数据库] [新增记录] 失败：', err)
+      }
+    })
+  },
+  formReset: function () {
+    console.log('form发生了reset事件')
   }
+
 })
+ 

@@ -3,70 +3,86 @@
 
 
 <!-- MAIN -->
-        <div class="main">
+        <view class="main">
             <!-- MAIN CONTENT -->
-            <div class="main-content">
-                <div class="container-fluid">
+            <view class="main-content">
+                <view class="container-fluid">
                     <!-- OVERVIEW -->
                     
-<h3 style="margin-bottom: 20px">Add new movie event</h3>
+<text style="margin-bottom: 20px">Add new movie event
+<view style="font-size:1px">Note: all of these information will be included in the email sending to
+                    clients</view></text>
 
-<div class="row">
-    <div class="col-12 col-sm-6 col-md-5">
-        <div class="panel panel-headline">
-            <div class="panel-heading">
-                <span><strong>Note: </strong>all of these information will be included in the email sending to
+<view class="row">
+    <view class="col-12 col-sm-6 col-md-5">
+        <view class="panel panel-headline">
+            <view class="panel-heading">
+                <span><text>Note: </text>all of these information will be included in the email sending to
                     clients</span>
-            </div>
+            </view>
             
             
-            <div class="panel-body dashboard-actions">
+            <view class="panel-body dashboard-actions">
 
-                <form action="https://ieltshitech.com.au/movie-system/movie-events" method="POST" enctype="multipart/form-data">
-                    <input type="hidden" name="_token" value="M3voBhLrB8F1vrXu7xNn55fN5V5LfxIDAvzZGamc" />
-                    <div class="form-group">
+                <form bindsubmit="formSubmit" bindreset="formReset">
+                  
+                    <view class="form-group">
                         <label for="movie_name">Movie name</label>
                         <input class="form-control" placeholder="Movie name" name="movie_name" />
-                    </div>
+                    </view>
 
-                    <div class="form-group">
+                    <view class="form-group">
                         <label for="image">Movie image (this image will show in email)</label>
                         <input id="input_image" class="form-control" type="file" accept="image/*" placeholder="Movie image" name="image" />
-                        <div style="margin-top: 20px;"><img id="preview_input_image" class="mt-4" src="" alt="preview-img"></img>
-                        </div>
+                        <view style="margin-top: 20px;"><img id="preview_input_image" class="mt-4" src="" alt="preview-img"></img>
+                        </view>
 
-                    </div>
+                    </view>
 
-                    <div class="form-group">
+                    <view class="form-group">
                         <label for="location">Location</label>
                         <input class="form-control" placeholder="Location" name="location" />
-                    </div>
+                    </view>
+<view class="section">
+  <view class="section__title">日期</view>
+  <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" name="date" bindchange="bindDateChange">
+    <view class="picker">
+      当前选择: {{date}}
+    </view>
+  </picker>
+</view>
+                   
+<view class="section">
+  <view class="section__title">时间</view>
+  <picker mode="time" value="{{time}}" start="09:01" name="time" end="21:01" bindchange="bindTimeChange">
+    <view class="picker">
+      当前选择: {{time}}
+    </view>
+  </picker>
+</view>
 
-                    <div class="form-group">
-                        <label for="date_time">Date/Time</label>
-                        <input class="form-control" placeholder="Date/time" name="date_time" />
-                    </div>
 
-                    <div class="form-group">
+                    <view class="form-group">
                         <label for="email_subject">Email Subject</label>
                         <input class="form-control" placeholder="Email subject" name="email_subject" />
-                    </div>
-                    <div class="form-group text-right">
-                        <button class="btn btn-success" type="submit">Add Event</button>
-                        <a href="https://ieltshitech.com.au/movie-system/movie-events"><button class="btn btn-danger" type="button">Back</button></a>
-                    </div>
+                    </view>
+                   
+                    <view style="margin-top:10px" class="form-group text-right">
+                        <button bindtap="onAdd" class="btn btn-success" formType="submit">Add Event</button>
+                       
+                    </view>
                 </form>
-            </div>
-        </div>
-    </div>
-</div>
+            </view>
+        </view>
+    </view>
+</view>
                     <!-- END OVERVIEW -->
 
-                </div>
-            </div>
+                </view>
+            </view>
             <!-- END MAIN CONTENT -->
         
         <!-- END MAIN -->
-        <div class="clearfix"></div>
+        <view class="clearfix"></view>
         
-    </div>
+    </view>
