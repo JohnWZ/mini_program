@@ -1,4 +1,5 @@
 <view class="container"> 
+<navigator url='../addevent/addevent'>redirect</navigator>
   <view class="login-icon">
     <image class="login-img" src="../images/logo.png"></image>
   </view>
@@ -23,6 +24,5 @@
     <view class="loginBtnView">
       <button class="loginBtn" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="login">登录</button>
     </view>
-    <navigator url='../index/index'>Home page</navigator>
   </view>
 </view>

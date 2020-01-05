@@ -20,6 +20,8 @@ Page({
 
   // 登录
   login: function () {
+    // 先简单地设置为空即失败，否则成功
+    // TODO：查询数据库账号，匹配到账号再匹配密码，全部符合就跳转到index，否则登录失败
     if (this.data.phone.length == 0 || this.data.password.length == 0) {
       wx.showToast({
         title: '登录失败',
@@ -27,7 +29,10 @@ Page({
         duration: 2000
       })
     } else {
-      // 这里修改成跳转的页面
+      // 登录成功后跳转到index
+      wx.navigateTo({
+        url: '../index/index',
+      })
       wx.showToast({
         title: '登录成功',
         icon: 'success',
