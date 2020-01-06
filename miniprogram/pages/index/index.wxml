@@ -19,7 +19,7 @@
     <hr>
       <view class="form-group text-right">
         <button class="btn btn-info">Edit</button>
-        <button id="delete-btn-8" class="btn btn-danger" onclick="deleteMovieEventHandler(8)">Delete</button>
+        <button bindtap="onRemove" data-id="{{item._id}}" class="btn btn-danger">Delete</button>
       </view>
     </hr>
     <hr>
