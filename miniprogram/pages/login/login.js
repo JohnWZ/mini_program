@@ -1,13 +1,13 @@
 Page({
   data: {
-    phone: '',
+    account: '',
     password: ''
   },
 
   // 获取输入账号
-  phoneInput: function (e) {
+  accountInput: function (e) {
     this.setData({
-      phone: e.detail.value
+      account: e.detail.value
     })
   },
 
@@ -22,11 +22,11 @@ Page({
   login: function () {
     // 先简单地设置为空即失败，否则成功
     // TODO：查询数据库账号，匹配到账号再匹配密码，全部符合就跳转到index，否则登录失败
-    if (this.data.phone.length == 0 || this.data.password.length == 0) {
+    if (this.data.account.length == 0 || this.data.password.length == 0) {
       wx.showToast({
         title: '登录失败',
         icon: 'loading',
-        duration: 2000
+        duration: 1000
       })
     } else {
       // 登录成功后跳转到index
@@ -36,8 +36,20 @@ Page({
       wx.showToast({
         title: '登录成功',
         icon: 'success',
-        duration: 2000
+        duration: 500
       })
     }
+  },
+
+  // 注册
+  registration: function () {
+    // 跳转到注册页面
+    // 先检查数据库里面有没有这个账号
+    // 有就返回已经存在，没有就添加
+    wx.showToast({
+      title: 'admin:123',
+      icon: 'success',
+      duration: 1000
+    })
   }
 })
