@@ -1,7 +1,3 @@
-<view class="list-item" wx:for="{{movies}}" wx:key="id"></view>
- 
-
-
 <!-- MAIN -->
         <view class="main">
             <!-- MAIN CONTENT -->
@@ -28,12 +24,12 @@
                   
                     <view class="form-group">
                         <label for="movie_name">Movie name</label>
-                        <input class="form-control" placeholder="Movie name" name="movie_name" />
+                        <input value='{{info}}' class="form-control" placeholder="Movie name" name="movie_name" />
                     </view>
 
                     <view class="form-group">
                         <label for="image">Movie image (this image will show in email)</label>
-                        <input id="input_image" class="form-control" type="file" accept="image/*" placeholder="Movie image" name="image" />
+                        <input value='{{info}}' id="input_image" class="form-control" type="file" accept="image/*" placeholder="Movie image" name="image" />
                         <view style="margin-top: 20px;"><img id="preview_input_image" class="mt-4" src="" alt="preview-img"></img>
                         </view>
 
@@ -41,11 +37,11 @@
 
                     <view class="form-group">
                         <label for="location">Location</label>
-                        <input class="form-control" placeholder="Location" name="location" />
+                        <input value='{{info}}' class="form-control" placeholder="Location" name="location" />
                     </view>
 <view class="section">
   <view class="section__title">日期</view>
-  <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" name="date" bindchange="bindDateChange">
+  <picker mode="date" value="{{info}}" start="2015-09-01" end="2017-09-01" name="date" bindchange="bindDateChange">
     <view class="picker">
       当前选择: {{date}}
     </view>
@@ -54,7 +50,7 @@
                    
 <view class="section">
   <view class="section__title">时间</view>
-  <picker mode="time" value="{{time}}" start="09:01" name="time" end="21:01" bindchange="bindTimeChange">
+  <picker mode="time" value="{{info}}" start="09:01" name="time" end="21:01" bindchange="bindTimeChange">
     <view class="picker">
       当前选择: {{time}}
     </view>
@@ -64,7 +60,7 @@
 
                     <view class="form-group">
                         <label for="email_subject">Email Subject</label>
-                        <input class="form-control" placeholder="Email subject" name="email_subject" />
+                        <input value='{{info}}' class="form-control" placeholder="Email subject" name="email_subject" />
                     </view>
                    
                     <view style="margin-top:10px" class="form-group text-right">
