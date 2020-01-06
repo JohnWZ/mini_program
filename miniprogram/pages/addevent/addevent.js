@@ -82,12 +82,15 @@ Page({
       },
       success: res => {
         // 在返回结果中会包含新创建的记录的 _id
-        this.setData({
-          counterId: res._id,
-          count: 1
-        })
+        
         wx.showToast({
           title: '新增记录成功',
+        })
+        this.setData({
+          counterId: res._id,
+          count: 1,
+         info:''
+
         })
         console.log('[数据库] [新增记录] 成功，记录 _id: ', res._id)
       },
