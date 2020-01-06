@@ -46,10 +46,13 @@ Page({
     // 跳转到注册页面
     // 先检查数据库里面有没有这个账号
     // 有就返回已经存在，没有就添加
+    wx.navigateTo({
+      url: '../registration/registration',
+    })
     wx.showToast({
-      title: 'admin:123',
+      title: '来了',
       icon: 'success',
-      duration: 1000
+      duration: 800
     })
   }
 })

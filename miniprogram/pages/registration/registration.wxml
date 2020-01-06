@@ -1,0 +1,22 @@
+
+<view class="main">                
+  <text style="margin-bottom: 20px">Add a new user</text>
+
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <view class="form-group">
+        <label for="account">User Account:</label>
+        <input class="form-control" placeholder="Account" name="account" />
+      </view>
+
+      <view class="form-group">
+        <label for="password">User Password</label>
+        <input class="form-control" placeholder="Password" name="password" />
+      </view>
+        
+      <view style="margin-top:10px" class="form-group text-right">
+        <button bindtap="onAdd" class="btn btn-success" formType="submit">Add User</button>
+          
+      </view>
+    </form>
+
+</view>

@@ -1,5 +1,4 @@
 <view class="container"> 
-<navigator url='../addevent/addevent'>redirect</navigator>
   <view class="login-icon">
     <image class="login-img" src="../images/logo.png"></image>
   </view>
@@ -25,7 +24,7 @@
       <button class="loginBtn" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="login">登录</button>
     </view>
     <view class="line"></view>
-    
+
     <!--注册按钮-->
     <view class="registrationBtnView">
       <button class="registrationnBtn" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="registration">注册</button>

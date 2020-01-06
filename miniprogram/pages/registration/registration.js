@@ -3,14 +3,9 @@ const app = getApp()
 Page({
 
   data: {
-    step: 1,
     counterId: '',
     openid: '',
-    count: null,
-    queryResult: '',
-    date: '2016-09-01',
-    time: '12:01',
-
+   
   },
 
   onLoad: function (options) {
@@ -20,41 +15,27 @@ Page({
       })
     }
   },
-  bindDateChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      date: e.detail.value
-    })
-  },
-  bindTimeChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      time: e.detail.value
-    })
-  },
+
   onAdd: function () {
-   //
+    //
   },
+
   formSubmit: function (e) {
     const db = wx.cloud.database()
     console.log('form发生了submit事件，携带数据为：', e.detail.value);
-    let { movie_name, image, location, date,time,email_subject } = e.detail.value;
+    let { userAccount,userPassword } = e.detail.value;
+    //var userAccount = e.detail.value.account;
+    //var userPassword = e.detail.value.password;
     this.setData({
-      movie_name,
-     image,
-     location,
-     date,
-     time,
-     email_subject,
+      userAccount: e.detail.value.account,
+      userPassword: e.detail.value.password
     })
-    db.collection('userbills').add({
+
+    db.collection('users').add({
       data: {
-        movie_name:e.detail.value.movie_name,
-        image: e.detail.value.image,
-        location: e.detail.value.location,
-        date: e.detail.value.date,
-        time: e.detail.value.time,
-        email_subject:e.detail.value.email_subject
+        userAccount: e.detail.value.account,
+        userPassword: e.detail.value.password,
+        
       },
       success: res => {
         // 在返回结果中会包含新创建的记录的 _id
@@ -63,14 +44,14 @@ Page({
           count: 1
         })
         wx.showToast({
-          title: '新增记录成功',
+          title: '注册成功',
         })
         console.log('[数据库] [新增记录] 成功，记录 _id: ', res._id)
       },
       fail: err => {
         wx.showToast({
           icon: 'none',
-          title: '新增记录失败'
+          title: '注册失败'
         })
         console.error('[数据库] [新增记录] 失败：', err)
       }
@@ -81,4 +62,3 @@ Page({
   }
 
 })
- 
