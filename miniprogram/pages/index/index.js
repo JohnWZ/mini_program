@@ -11,7 +11,7 @@ Page({
 
   // 页面初始化
   onLoad: function () {
-
+    var _this=this;
   // 创建数据库实例
   const db = wx.cloud.database({
     // 环境id
@@ -20,9 +20,8 @@ Page({
   // 查询userbills的数据
   db.collection('userbills').get({
     success : res=> {
-      console.log(res.data[0])
+      
       this.setData({
-        // 将结果赋值给movies，以便在前台显示
         movies: res.data
       })
     }
