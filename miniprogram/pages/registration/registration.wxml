@@ -1,6 +1,5 @@
-
 <view class="main">                
-  <text style="margin-bottom: 20px">Add a new user</text>
+  <text style="margin-bottom: 20px">New User Registration</text>
 
     <form bindsubmit="formSubmit" bindreset="formReset">
       <view class="form-group">
@@ -15,7 +14,6 @@
         
       <view style="margin-top:10px" class="form-group text-right">
         <button bindtap="onAdd" class="btn btn-success" formType="submit">Add User</button>
-          
       </view>
     </form>
 

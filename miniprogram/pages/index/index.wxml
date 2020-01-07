@@ -1,27 +1,24 @@
-<view class="list-item" wx:for="{{movies}}" wx:key="id"></view>
- <navigator url='../addevent/addevent'>add event</navigator>
+<navigator url='../addevent/addevent'>add event</navigator>
 <h3>Upcoming Movie Events</h3>
-<view class="list-item" wx:for="{{movies}}" wx:key="id"></view>
- <navigator url='../addevent/addevent'>add event</navigator>
-<h3>Upcoming Movie Events</h3>
-
+<view class="list-item" wx:for="{{movies}}" wx:key="id">
 <view class="panel">
   <view class="panel-heading">
-    <h3 class="panel-title">{{ movies[0].movie_name }}</h3>
+    <h3 class="panel-title">{{ item.movie_name }}</h3>
     
   </view>
 
   <view class="panel-body">
     <view class="text-center" style="margin-bottom: 20px;">
-      <image> src={{ movies[0].pic }} alt="movie-event-img-8" style="max-width:150px;"></image>
+      <image src="{{ item.pic }}" alt="movie-event-img-8" style="max-width:150px;">  </image>
     </view>
-    <text>Location:{{ movies[0].location }}
-    Date/Time: {{ movies[0].date }}
-    Email Subject:麦芽团购 {{ movies[0].movie_name }}</text>
+    <text>Location:{{ item.location }}
+    Date: {{ item.date }}
+    Time: {{ item.time }}
+    Email Subject:麦芽团购 {{ item.movie_name }}</text>
     <hr>
       <view class="form-group text-right">
         <button class="btn btn-info">Edit</button>
-        <button id="delete-btn-8" class="btn btn-danger" onclick="deleteMovieEventHandler(8)">Delete</button>
+        <button bindtap="onRemove" data-id="{{item._id}}" class="btn btn-danger">Delete</button>
       </view>
     </hr>
     <hr>
@@ -37,39 +34,4 @@
     </hr>
   </view>
 </view>
-
-
-<view class="panel">
-  <view class="panel-heading">
-    <h3 class="panel-title">{{ movies[1].movie_name }}</h3>
-    <view class="right">
-        <button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
-    </view>
-  </view>
-
-  <view class="panel-body">
-    <view class="text-center" style="margin-bottom: 20px;">
-      <image> src="css/20191123-1574493858.jpg" alt="movie-event-img-8" style="max-width:150px;"></image>
-    </view>
-    <text>Location:{{ movies[1].location }}
-    Date/Time: {{ movies[1].date }}
-    Email Subject:麦芽团购 {{ movies[1].movie_name }}</text>
-    <hr>
-      <view class="form-group text-right">
-        <button class="btn btn-info">Edit</button>
-        <button id="delete-btn-8" class="btn btn-danger" onclick="deleteMovieEventHandler(8)">Delete</button>
-      </view>
-    </hr>
-    <hr>
-      <view class="form-group text-right">
-        <button class="btn btn-default" style="margin-bottom: 5px">View Tickets</button>
-        <button class="btn btn-success" style="margin-bottom: 5px">Send Ticket</button>
-      </view>
-    </hr>
-    <hr>
-      <view class="form-group text-right">
-        <button class="btn btn-warning" style="margin-bottom: 5px"><i class="lnr lnr-envelope" style="margin-right:10px; font-size: 17px; font-weight:bold;"></i>Send Notification</button>
-      </view>
-    </hr>
-  </view>
 </view>
